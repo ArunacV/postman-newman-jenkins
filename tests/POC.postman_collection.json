@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "003d4a05-9447-4ac8-b541-5bcfcb4b1f0d",
+		"name": "POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DEL userID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf7babd2-0b71-4f1c-8260-6cc525734349",
+						"exec": [
+							"/*pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 2000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"*/",
+							"",
+							"tests[\"Status code is 200\"]=responseCode.code == 200;",
+							"tests[\"Response time is less than 2000ms\"]=responseTime < 2000;",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET userID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a13b227b-f9e4-4967-a579-672ad66d09fd",
+						"exec": [
+							"/*pm.test(\"Status code is 200\", function () {     pm.response.to.have.status(200); });",
+							"pm.test(\"Body is correct\", function () {     pm.response.to.have.body(\"qui est esse\"); });",
+							"*/",
+							"",
+							"tests[\"Status code is 200\"]=responseCode.code == 200;",
+							"tests[\"Body matches string \"]=responseBody.has(\"qui est esse\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
